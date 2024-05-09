@@ -16,5 +16,5 @@ EXPOSE 7860
 # fix 
 RUN pip install auto_gptq>=0.5.0 optimum
 
+CMD [ "llamafactory-cli", "webui" ]
 
-CMD [ "python", "src/train_web.py" ]
