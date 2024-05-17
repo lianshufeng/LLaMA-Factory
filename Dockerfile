@@ -7,14 +7,14 @@ COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
 COPY . /app/
-RUN pip install -e .[deepspeed,metrics,bitsandbytes,qwen]
+RUN pip install -e .[metrics,bitsandbytes,qwen]
 
 VOLUME [ "/root/.cache/huggingface/", "/app/data", "/app/output" ]
 EXPOSE 7860
 
 
 # fix 
-RUN pip install auto_gptq>=0.5.0 optimum
+RUN pip install auto_gptq>=0.5.0 optimum autoawq
 
 CMD [ "llamafactory-cli", "webui" ]
 
