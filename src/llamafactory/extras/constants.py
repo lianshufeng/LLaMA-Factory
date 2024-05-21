@@ -22,6 +22,8 @@ FILEEXT2TYPE = {
 
 IGNORE_INDEX = -100
 
+IMAGE_TOKEN = "<image>"
+
 LAYERNORM_NAMES = {"norm", "ln"}
 
 METHODS = ["full", "freeze", "lora"]
@@ -45,6 +47,7 @@ TRAINING_STAGES = {
     "Reward Modeling": "rm",
     "PPO": "ppo",
     "DPO": "dpo",
+    "KTO": "kto",
     "ORPO": "orpo",
     "Pre-Training": "pt",
 }
@@ -323,6 +326,9 @@ register_model_group(
             DownloadSource.DEFAULT: "deepseek-ai/deepseek-moe-16b-base",
             DownloadSource.MODELSCOPE: "deepseek-ai/deepseek-moe-16b-base",
         },
+        "DeepSeek-MoE-16B-v2-Base": {
+            DownloadSource.DEFAULT: "deepseek-ai/DeepSeek-V2-Lite",
+        },
         "DeepSeek-MoE-236B-Base": {
             DownloadSource.DEFAULT: "deepseek-ai/DeepSeek-V2",
             DownloadSource.MODELSCOPE: "deepseek-ai/DeepSeek-V2",
@@ -330,6 +336,9 @@ register_model_group(
         "DeepSeek-MoE-16B-Chat": {
             DownloadSource.DEFAULT: "deepseek-ai/deepseek-moe-16b-chat",
             DownloadSource.MODELSCOPE: "deepseek-ai/deepseek-moe-16b-chat",
+        },
+        "DeepSeek-MoE-16B-v2-Chat": {
+            DownloadSource.DEFAULT: "deepseek-ai/DeepSeek-V2-Lite-Chat",
         },
         "DeepSeek-MoE-236B-Chat": {
             DownloadSource.DEFAULT: "deepseek-ai/DeepSeek-V2-Chat",
@@ -704,6 +713,28 @@ register_model_group(
         },
     },
     template="orion",
+)
+
+
+register_model_group(
+    models={
+        "PaliGemma-3B-pt-224": {
+            DownloadSource.DEFAULT: "google/paligemma-3b-pt-224",
+        },
+        "PaliGemma-3B-pt-448": {
+            DownloadSource.DEFAULT: "google/paligemma-3b-pt-448",
+        },
+        "PaliGemma-3B-pt-896": {
+            DownloadSource.DEFAULT: "google/paligemma-3b-pt-896",
+        },
+        "PaliGemma-3B-mix-224": {
+            DownloadSource.DEFAULT: "google/paligemma-3b-mix-224",
+        },
+        "PaliGemma-3B-mix-448": {
+            DownloadSource.DEFAULT: "google/paligemma-3b-mix-448",
+        },
+    },
+    vision=True,
 )
 
 
